@@ -8,9 +8,11 @@ public class ObjectGrabbable : MonoBehaviour
     private Rigidbody objectRigidbody;
     private Transform objectGrabPointTransform;
     public GameObject objetoADestruir;
+    private GameObject Player;
 
     private void Awake(){
         objectRigidbody = GetComponent<Rigidbody>();
+
         }
     
 
