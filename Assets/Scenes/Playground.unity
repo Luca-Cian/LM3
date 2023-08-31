@@ -2837,7 +2837,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529677480}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2910,7 +2910,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 2
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4071,7 +4071,7 @@ GameObject:
   - component: {fileID: 682402189}
   - component: {fileID: 682402188}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Puntero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4166,7 +4166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e36409a17ca644da8d877be5c90a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progresoDeRotura: {fileID: 529677482}
+  mousePressed: 0
   requireHoldTime: 2
+  canInteract: 0
 --- !u!65 &705701623
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7728,8 +7731,8 @@ Transform:
   m_GameObject: {fileID: 1121792382}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.95, y: 1.02, z: 15.58}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 27.95, y: 1.3558, z: 15.9158}
+  m_LocalScale: {x: 0.3284, y: 0.3284, z: 0.3284}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7746,7 +7749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e36409a17ca644da8d877be5c90a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progresoDeRotura: {fileID: 529677482}
+  mousePressed: 0
   requireHoldTime: 2
+  canInteract: 0
 --- !u!1 &1133646311
 GameObject:
   m_ObjectHideFlags: 0
@@ -9228,7 +9234,7 @@ RectTransform:
   m_Children:
   - {fileID: 682402187}
   - {fileID: 529677481}
-  m_Father: {fileID: 1793609027}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12301,12 +12307,6 @@ Transform:
   - {fileID: 537144251}
   m_Father: {fileID: 1266184239}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1793609027 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
-    type: 3}
-  m_PrefabInstance: {fileID: 7288094137546172433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1807863025
 GameObject:
   m_ObjectHideFlags: 0
@@ -15025,11 +15025,7 @@ PrefabInstance:
       objectReference: {fileID: 8338988565591873055}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1332180037}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
 --- !u!4 &8338988565591873055 stripped
@@ -15046,6 +15042,7 @@ SceneRoots:
   - {fileID: 262123865}
   - {fileID: 2084445384}
   - {fileID: 60889539378096550}
+  - {fileID: 1332180037}
   - {fileID: 7288094137546172433}
   - {fileID: 5393215579111688471}
   - {fileID: 1979352518}

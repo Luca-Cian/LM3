@@ -7,12 +7,8 @@ public class Soltarse : MonoBehaviour
 {
     private Slider slider;
 
-    private void Start(){
+    void Awake(){
         slider = GetComponent<Slider>();
-    }
-
-    public void CambiarProgreso(float nivelSoltado){
-        slider.maxValue = nivelSoltado;
     }
 
     public void CambiarProgresoActual(float progresoActual){
@@ -20,7 +16,6 @@ public class Soltarse : MonoBehaviour
     }
 
     public void InicializarProgreso(float progresoInicial){
-        CambiarProgreso(progresoInicial);
         CambiarProgresoActual(progresoInicial);
     }
 }

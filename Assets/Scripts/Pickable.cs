@@ -3,41 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Pickable : Interactable
+public class Pickable : MonoBehaviour
 {
-    private bool mousePressed;
+    [SerializeField] private Soltarse progresoDeRotura;
+
+    public bool mousePressed;
     public float requireHoldTime;
     private float timerMousePressed;
+    private float nivelRotura;
+    public bool canInteract;
 
-    [SerializeField]public ProgresoDeRotura progresoDeRotura;
-
-    void Start(){
-        progresoDeRotura.InicializarProgreso(timerMousePressed);
+    void Awake(){
+        progresoDeRotura.InicializarProgreso(nivelRotura);
     }
 
     void OnMouseDown(){
         mousePressed = true;
-        Debug.Log(timerMousePressed);
+        //Debug.Log("apretando");
+    }
+
+    void OnMouseUp(){
+        mousePressed = false;
+        //Debug.Log("soltaste");
     }
 
     void Update(){
-        if(mousePressed){
-            timerMousePressed += Time.deltaTime;
-        } else {
-            Reset();
-        }
+        if(canInteract){
+            if(mousePressed){
+                timerMousePressed += Time.deltaTime;
+                nivelRotura = timerMousePressed;
+                Debug.Log(nivelRotura);
+                progresoDeRotura.CambiarProgresoActual(nivelRotura);
 
+                if(timerMousePressed >= requireHoldTime){
+                    Destroy(gameObject);
+                    Reset();
+                }
+            } else if(!mousePressed) {
+                Reset();
+            }
+        }
+    }
+
+    /*public void canInteract(){
         if(timerMousePressed >= requireHoldTime){
             Destroy(gameObject);
+            Reset();
         }
-    }
-
-    public override void Interact(){
-        base.Interact();
-    }
+    }*/
 
     void Reset(){
         timerMousePressed = 0;
-        mousePressed = false;
+        progresoDeRotura.CambiarProgresoActual(0);
+        canInteract = false;
     }
 }
