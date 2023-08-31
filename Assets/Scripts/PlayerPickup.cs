@@ -1,35 +1,24 @@
+using UnityEngine.EventSystems;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour
 {
 
 [SerializeField] private Transform playerCameraTransform;
-[SerializeField] private LayerMask pickUpLayerMask;
-[SerializeField] private Transform objectGrabPointTransform;
 
+public float rayDistance;
 
- private ObjectGrabbable objectGrabbable;
- private void Update() {
+private void Update() {
+
+  Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * rayDistance, Color.red);
+
    if(Input.GetMouseButtonDown(0)){
-      if(objectGrabbable == null){
-
-     float pickUpDistance = 2f;
-     if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask)){
-        if(raycastHit.transform.TryGetComponent(out objectGrabbable)){
-            objectGrabbable.Grab(objectGrabPointTransform);
-            Debug.Log(objectGrabbable);
-        }
-     }
-    } else {
-        objectGrabbable.Drop();
-        objectGrabbable = null;
-    }
+      if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, rayDistance, LayerMask.GetMask("Hilo"))){
+        raycastHit.transform.GetComponent<Interactable>().Interact();
+      }
    }
-
  }
-
 }
 
 
