@@ -7,6 +7,7 @@ public class Pickable : MonoBehaviour
 {
     [SerializeField] private Soltarse progresoDeRotura;
 
+
     public bool mousePressed;
     public float requireHoldTime;
     private float timerMousePressed;
@@ -14,6 +15,7 @@ public class Pickable : MonoBehaviour
     public bool canInteract;
 
     void Awake(){
+        //progresoDeRotura = GetComponent<ProgresoDeRotura>();
         progresoDeRotura.InicializarProgreso(nivelRotura);
     }
 
@@ -30,9 +32,10 @@ public class Pickable : MonoBehaviour
     void Update(){
         if(canInteract){
             if(mousePressed){
+                progresoDeRotura.showProgressBar();
                 timerMousePressed += Time.deltaTime;
                 nivelRotura = timerMousePressed;
-                Debug.Log(nivelRotura);
+                //Debug.Log(nivelRotura);
                 progresoDeRotura.CambiarProgresoActual(nivelRotura);
 
                 if(timerMousePressed >= requireHoldTime){
@@ -45,16 +48,10 @@ public class Pickable : MonoBehaviour
         }
     }
 
-    /*public void canInteract(){
-        if(timerMousePressed >= requireHoldTime){
-            Destroy(gameObject);
-            Reset();
-        }
-    }*/
-
     void Reset(){
         timerMousePressed = 0;
         progresoDeRotura.CambiarProgresoActual(0);
         canInteract = false;
+        progresoDeRotura.hideProgressBar();
     }
 }

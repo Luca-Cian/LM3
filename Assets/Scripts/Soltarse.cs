@@ -12,10 +12,20 @@ public class Soltarse : MonoBehaviour
     }
 
     public void CambiarProgresoActual(float progresoActual){
-        slider.value = progresoActual;
+        if(slider != null){
+            slider.value = progresoActual;
+        }
     }
 
     public void InicializarProgreso(float progresoInicial){
         CambiarProgresoActual(progresoInicial);
+    }
+
+    public void showProgressBar(){
+        gameObject.SetActive(true);
+    }
+
+    public void hideProgressBar(){
+        gameObject.SetActive(false);
     }
 }
